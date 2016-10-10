@@ -1,9 +1,9 @@
 "set the starting working directory to something where we have access rights
 " this also means that the swap files do not pollute the working folders
 if has("win32") || has("win64")
-   set undodir=C:\\users\\ccaraivan\\vimfiles
-   set directory=C:\\Users\\ccaraivan\\vimfiles
-   set backupdir=C:\\Users\\ccaraivan\\vimfiles
+   set undodir=C:\\users\\ccaraivan\\vimfiles\\undo
+   set directory=C:\\Users\\ccaraivan\\vimfiles\\directory
+   set backupdir=C:\\Users\\ccaraivan\\vimfiles\\backup
 else
    set undodir=/tmp
    set directory=/tmp

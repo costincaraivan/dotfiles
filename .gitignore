@@ -1,5 +1,14 @@
-*
-!.gitignore
-!vimfiles/
-!.vimrc
-!.zshrc
+# Ignore everything.
+/*
+
+# Except for this exact list of files.
+!/.gitignore
+!/.vimrc
+!/.zshrc
+
+# And this exact list of folders.
+!/vimfiles/
+# There are some generated files in vimfiles, which we want to ignore.
+/vimfiles/backup
+/vimfiles/directory
+/vimfiles/undo
