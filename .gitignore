@@ -1,0 +1,5 @@
+*
+!.gitignore
+!vimfiles/
+!.vimrc
+!.zshrc
