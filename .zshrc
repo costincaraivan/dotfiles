@@ -10,15 +10,15 @@ zmodload zsh/complist
 export HISTSIZE=50000
 export SAVEHIST=50000
 export HISTFILE=~/.zsh/zsh_history
-setopt hist_ignore_dups 
-setopt appendhistory       
+setopt hist_ignore_dups
+setopt appendhistory
 # editor and pager settings
 export PAGER=less
 export EDITOR=vim
 # confirm ! commands - to avoid hastily repeating harmful commands
-setopt histverify   
+setopt histverify
 # turn off console beep
-setopt nobeep  
+setopt nobeep
 # correct both command and parameters
 setopt CORRECT
 setopt CORRECT_ALL
@@ -43,7 +43,7 @@ zstyle ':complezstyle:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
-# kill PID completion 
+# kill PID completion
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 # ignore the files on the command line for autocompletion
@@ -55,13 +55,14 @@ bindkey '^i' expand-or-complete-prefix
 # aliases
 alias ls='ls --color=auto -F'
 alias grep='grep --color=auto'
-# tetris game - Ctrl-x-t
-autoload -U tetris
-zle -N tetris
-bindkey "^Xt" tetris 
+
+# Fix the Home and End keys.
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
+
 # find a process and kill it
 pskill ()
-{ 
+{
 	local pid
 	pid=$(ps -e | grep $1 | grep -v grep | awk '{ print $1 }')
 	echo -n "Killing $1 (process $pid).\n"
