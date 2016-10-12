@@ -9,6 +9,7 @@
 # And this exact list of folders.
 !/vimfiles/
 # There are some generated files in vimfiles, which we want to ignore.
+/vimfiles/.netrwhist
 /vimfiles/backup
 /vimfiles/directory
 /vimfiles/undo
