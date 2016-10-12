@@ -12,6 +12,7 @@ export SAVEHIST=50000
 export HISTFILE=~/.zsh/zsh_history
 setopt hist_ignore_dups
 setopt appendhistory
+setopt share_history
 # editor and pager settings
 export PAGER=less
 export EDITOR=vim
