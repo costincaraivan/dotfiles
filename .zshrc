@@ -60,6 +60,7 @@ alias grep='grep --color=auto'
 # Fix the Home and End keys.
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
+bindkey "${terminfo[kdch1]}" delete-char
 
 # find a process and kill it
 pskill ()
