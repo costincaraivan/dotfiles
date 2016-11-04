@@ -14,7 +14,8 @@ setopt hist_ignore_dups
 setopt appendhistory
 setopt share_history
 # editor and pager settings
-export PAGER=less
+# Fixes aws help on Cygwin.
+export PAGER='less -isR'
 export EDITOR=vim
 # confirm ! commands - to avoid hastily repeating harmful commands
 setopt histverify

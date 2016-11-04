@@ -1,3 +1,5 @@
+set fileformats=unix,dos
+set fileformat=unix
 "set the starting working directory to something where we have access rights
 " this also means that the swap files do not pollute the working folders
 if has("win32") || has("win64")
