@@ -12,8 +12,7 @@ setopt prompt_subst
 # Git prompt.
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats "[%s://%r/%b %u%c]"
-zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "[%s://%r/%b]"
 
 local promptusername='%n'
 local prompthostname='%M'
