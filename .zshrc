@@ -5,24 +5,35 @@ export PATH=/bin:/sbin/:/usr/sbin:${PATH}
 # Emacs keybindings.
 bindkey -e
 
-# For nice prompts.
+# Load the terminal colors and activate them.
 autoload -U colors
+colors
+# Nicer names for the color sequences.
+startcyan='%{$fg[cyan]%}'
+startgreen='%{$fg[green]%}'
+startred='%{$fg[red]%}'
+startyellow='%{$fg[yellow]%}'
+startblue='%{$fg[blue]%}'
+endcolor='%{$reset_color%}'
+startmagenta='%{$fg[magenta]%}'
+
+# Activate prompts substitutions, used by vcs_info.
 setopt prompt_subst
 
-# Git prompt.
+# VCS (= SCM: git, svn) info.
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats "[%s://%r/%b]"
+zstyle ':vcs_info:*' formats "%s://%r/%b"
 
-local promptusername='%n'
-local prompthostname='%M'
-local current_directory='%~'
-local prompt="[${promptusername}@${prompthostname}:${current_directory}]"
-local promptnewline=$'\n'
-local promptdatetime='%D{%H:%M %a %d/%b/%Y}'
-local promptscm="\${vcs_info_msg_0_}>"
-local prompt="${prompt}${promptnewline}[${promptdatetime}]"
-local prompt="${prompt}${promptscm}"
+promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
+prompt="${promptdatetime}"
+promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
+promptnewline=$'\n'
+prompt=" ${prompt} : ${promptscm}${promptnewline}"
+promptusername="${startyellow}%n${endcolor}"
+prompthostname="${startyellow}%M${endcolor}"
+current_directory="${startgreen}%~${endcolor}"
+prompt="${prompt} ${promptusername}${startyellow}@${endcolor}${prompthostname} : ${current_directory} => "
 export PS1=${prompt}
 
 precmd () { vcs_info }
