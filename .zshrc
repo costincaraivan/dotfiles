@@ -29,11 +29,11 @@ promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
 prompt="${promptdatetime}"
 promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
 promptnewline=$'\n'
-prompt=" ${prompt} : ${promptscm}${promptnewline}"
+prompt="# ${prompt} :: ${promptscm}${promptnewline}"
 promptusername="${startyellow}%n${endcolor}"
 prompthostname="${startyellow}%M${endcolor}"
 current_directory="${startgreen}%~${endcolor}"
-prompt="${prompt} ${promptusername}${startyellow}@${endcolor}${prompthostname} : ${current_directory} => "
+prompt="${prompt}# ${promptusername}${startyellow}@${endcolor}${prompthostname} :: ${current_directory} => "
 export PS1=${prompt}
 
 precmd () { vcs_info }
