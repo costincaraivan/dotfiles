@@ -25,15 +25,26 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats "%s://%r/%b"
 
-promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
-prompt="${promptdatetime}"
-promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
+promptstart="# "
+promptseparator=" # "
 promptnewline=$'\n'
-prompt="# ${prompt} :: ${promptscm}${promptnewline}"
+promptend=" => "
+
+promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
+promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
+
+firstprompt="${promptstart}${promptdatetime}${promptseparator}${promptscm}${promptnewline}"
+
 promptusername="${startyellow}%n${endcolor}"
+promptat="${startyellow}@${endcolor}"
 prompthostname="${startyellow}%M${endcolor}"
+promptlocation="${promptusername}${promptat}${prompthostname}"
 current_directory="${startgreen}%~${endcolor}"
-prompt="${prompt}# ${promptusername}${startyellow}@${endcolor}${prompthostname} :: ${current_directory} => "
+
+secondprompt="${promptstart}${promptlocation}${promptseparator}${current_directory}${promptend}"
+
+prompt="${firstprompt}${secondprompt}"
+
 export PS1=${prompt}
 
 precmd () { vcs_info }
