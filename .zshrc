@@ -47,7 +47,11 @@ prompt="${firstprompt}${secondprompt}"
 
 export PS1=${prompt}
 
+# Get the VCS info before hitting <Enter>.
 precmd () { vcs_info }
+
+# Set the console/tab title after hitting <Enter>.
+preexec () { echo -e "\033]0;$1\007" }
 
 zmodload zsh/complist
 # set history options
