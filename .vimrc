@@ -12,11 +12,11 @@ else
    set backupdir=/tmp
 end 
 "stop beeping when errors occur - set visual bell
-set vb
+set visualbell
 "show invisible characters
 set list
 "set list of invisible characters
-set listchars=eol:¤,tab:¶·,nbsp:§,precedes:»,extends:«,trail:·
+set listchars=eol:¤,tab:»·,nbsp:§,precedes:»,extends:«,trail:·
 "use spell checker
 "setlocal spell spelllang=en_us
 "make backup files
@@ -28,11 +28,7 @@ set undofile
 set autoread
 "stop Vi compatibility mode - allows multiple undo, ...
 set nocompatible
-"shows relative line numbers - laggy
-"autocmd FocusLost * :set number
-"autocmd InsertEnter * :set number
-"autocmd InsertLeave * :set relativenumber
-"autocmd CursorMoved * :set relativenumber
+"show line numbers
 set number
 "highlights the current line
 set cursorline
@@ -75,7 +71,7 @@ filetype plugin indent on
 "use backspace as usual
 set backspace=eol,indent,start
 "command history
-set history=1000
+set history=10000
 "do not replace tabs inserted with space
 set noexpandtab
 "do not insert spaces according to shiftwidth or softtabstop
@@ -91,7 +87,7 @@ set foldmethod=marker
 "foldmarker, so Vim will know where to fold
 set foldmarker=##-,-##
 "not sure about this
-set showfulltag 
+set showfulltag
 "show possible completion on the bottom command line
 set wildmenu
 set wildmode=list:full
@@ -100,7 +96,7 @@ set mouse=a
 "scroll ahead, to prevent ugly line scrolling
 set scrolloff=3
 "colorscheme - relaxing
-color oceandeep
+color wombat
 "easy gui copy/cut/paste, with Ctrl-C/Ctr-X/Ctrl-V
 vmap <C-c> "+y
 vmap <C-x> "+x
@@ -110,7 +106,7 @@ vmap <C-a> <Esc>ggVG
 "map <Alt-v> for pasting in command mode.
 cmap <C-v> <C-r>"
 "nice Windows font, good for Linux too (sometimes it is not available)
-set guifont=Consolas:h10
+set guifont=Consolas:h13
 "always show tabbar
 set showtabline=2
 "disable menubar & toolbar
@@ -138,11 +134,11 @@ map <A-0>  <Esc>10gt
 map <C-Tab> <Esc>:tabnext<CR>
 map <C-S-Tab> <Esc>:tabprevious<CR>
 "Alt-Left, Alt-Right for moving *through* tabs left or right
-map <M-Left> <Esc>:tabp<CR>
-map <M-Right> <Esc>:tabn<CR>
+map <M-Left> <Esc>:tabprevious<CR>
+map <M-Right> <Esc>:tabnext<CR>
 "Ctrl-Left, Ctrl-Right for moving tabs left or right
-map <silent> <C-Left> <Esc>:exe "silent! tabm ".(tabpagenr()-2)<CR>
-map <silent> <C-Right> <Esc>:exe "silent! tabm ".tabpagenr()<CR>
+map <silent> <C-Left> <Esc>:exe "silent! tabmove ".(tabpagenr() - 2)<CR>
+map <silent> <C-Right> <Esc>:exe "silent! tabmove ".(tabpagenr() + 1)<CR>
 "tab completion
 imap <S-Tab> <C-X><C-N>
 " Map Escape to remove highlight from searches. This makes it easy to get rid
@@ -153,8 +149,6 @@ nnoremap <Esc> :noh<CR><Esc>
 "match Spaces /\s/
 "start fullscreen on Windows (sends Alt-Space x)
 au GUIEnter * simalt ~x
-"abbreviations for common folders
-abb home% D:\costin\
 "autoload the session at Vim start up
 "source ~/vimfiles/vimmainsession.vis"
 "save session
@@ -162,19 +156,3 @@ map <F4> <Esc>:mksession! ~/vimfiles/vimmainsession.vis<CR>"
 " Remap Ctrl-Space to autocomplete. Taken from here:
 " http://stackoverflow.com/questions/510503/ctrlspace-for-omni-and-keyword-completion-in-vim.
 inoremap <C-Space> <C-P>
-
-"map F5 to running wish on current file (used for Tcl programming)
-"map <F5> <Esc>:silent !wish %<CR>
-"map F5 to running mvn clean install -Dintegration on the current document.
-"map <F5> <Esc>:!mvn clean install -Dintegration -f %<CR>
-"map F6 to running mvn clean on the current document.
-" map <F6> <Esc>:!mvn clean -f %<CR>
-" map <F5> for running Python 3.1 on the current document.
-" map <F5> <Esc>:!"C:\Program Files\Python3.1\python.exe" %<CR>
-" map <F6> for running Python 3.1 on the current document, silently.
-" map <F6> <Esc>:silent !"C:\Program Files\Python3.1\python.exe" %<CR>
-"map ;c for XML/HTML comment and ;ec for end of comment for XML/HTML documents.
-imap ;c <Esc>i<!-- ##- --><Esc>2hi
-imap ;ec <Esc>i<!-- -## End of --><Esc>2hi
-"automatically edit comments inserted with the previous commands.
-map <F2> <Esc>p4la-<Esc>3lxaEnd of <Esc>l~jyy

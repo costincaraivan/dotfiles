@@ -28,7 +28,7 @@ zstyle ':vcs_info:*' formats "%s://%r/%b"
 promptstart="# "
 promptseparator=" # "
 promptnewline=$'\n'
-promptend=" => "
+promptend="# "
 
 promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
 promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
@@ -39,9 +39,9 @@ promptusername="${startyellow}%n${endcolor}"
 promptat="${startyellow}@${endcolor}"
 prompthostname="${startyellow}%M${endcolor}"
 promptlocation="${promptusername}${promptat}${prompthostname}"
-current_directory="${startgreen}%~${endcolor}"
+current_directory="${startgreen}%2~${endcolor}"
 
-secondprompt="${promptstart}${promptlocation}${promptseparator}${current_directory}${promptend}"
+secondprompt="${promptstart}${promptlocation}${promptseparator}${current_directory}${promptnewline}${promptend}"
 
 prompt="${firstprompt}${secondprompt}"
 
@@ -104,3 +104,8 @@ alias grep='grep --color=auto'
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 bindkey "${terminfo[kdch1]}" delete-char
+
+function gvim() {
+	file=$(echo "$1" | sed -e 's/~/C:\/Users\/ccaraivan/')
+	/c/Program\ Files\ \(x86\)/Vim/vim80/gvim --remote-tab "$(cygpath -m $file)"
+}

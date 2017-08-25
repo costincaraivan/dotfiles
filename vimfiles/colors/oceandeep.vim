@@ -50,13 +50,7 @@ highlight IncSearch     gui=reverse guifg=fg guibg=bg
 highlight LineNr        gui=bold guibg=grey6 guifg=LightSkyBlue3
 highlight ModeMsg       guibg=DarkGreen guifg=LightGreen
 highlight MoreMsg       gui=bold  guifg=SeaGreen4 guibg=bg
-if version < 600
-    " same as SpecialKey
-    highlight NonText   guibg=#123A4A guifg=#3D5D6D
-else
-    " Bottom fill (use e.g. same as LineNr)
-    highlight NonText   gui=None guibg=#103040 guifg=LightSkyBlue
-endif
+highlight NonText       gui=None guibg=#103040 guifg=#507080
 highlight Normal        gui=None guibg=#103040 guifg=honeydew2
 highlight Question      gui=bold  guifg=SeaGreen2 guibg=bg
 highlight Search        gui=NONE guibg=LightSkyBlue4 guifg=NONE
@@ -74,8 +68,7 @@ highlight Constant      guifg=cyan3 guibg=bg
 highlight String        gui=None guifg=turquoise2 guibg=bg
 highlight Number        gui=None guifg=Cyan guibg=bg
 highlight Boolean       gui=bold guifg=Cyan guibg=bg
-"highlight Identifier    guifg=LightSkyBlue3
-highlight Identifier      gui=None guifg=DarkSeaGreen3 guibg=bg
+highlight Identifier    gui=None guifg=DarkSeaGreen3 guibg=bg
 highlight Function      gui=None guifg=DarkSeaGreen3 guibg=bg
 
 highlight Statement     gui=NONE guifg=LightGreen
