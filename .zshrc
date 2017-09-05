@@ -1,10 +1,9 @@
 export PATH=/bin:/sbin/:/usr/sbin:${PATH}
 
-#setopt XTRACE VERBOSE
-
 # Emacs keybindings.
 bindkey -e
 
+##- Prompt colors.
 # Load the terminal colors and activate them.
 autoload -U colors
 colors
@@ -16,7 +15,9 @@ startyellow='%{$fg[yellow]%}'
 startblue='%{$fg[blue]%}'
 endcolor='%{$reset_color%}'
 startmagenta='%{$fg[magenta]%}'
+#-##
 
+##- Prompt.
 # Activate prompts substitutions, used by vcs_info.
 setopt prompt_subst
 
@@ -46,6 +47,7 @@ secondprompt="${promptstart}${promptlocation}${promptseparator}${current_directo
 prompt="${firstprompt}${secondprompt}"
 
 export PS1=${prompt}
+#-##
 
 # Get the VCS info before hitting <Enter>.
 precmd () { vcs_info }
@@ -76,6 +78,10 @@ setopt CORRECT_ALL
 setopt HASH_CMDS
 setopt HASH_DIRS
 setopt HASH_LIST_ALL
+
+autoload -Uz compinit
+compinit
+
 # don't complete for functions not available
 zstyle ':completion:*:functions' ignored-patterns '_*'
 # use a cache for slow functions
