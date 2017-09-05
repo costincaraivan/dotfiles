@@ -5,6 +5,8 @@
 !/.gitignore
 !/.vimrc
 !/.zshrc
+!/.minttyrc
+!/.tmux.conf
 
 # And this exact list of folders.
 !/vimfiles/
