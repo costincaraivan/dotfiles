@@ -1,3 +1,5 @@
+" pick up color theme from user folder
+set runtimepath+=~/vimfiles
 set fileformats=unix,dos
 set fileformat=unix
 "set the starting working directory to something where we have access rights
@@ -49,7 +51,7 @@ set statusline=%R%M\ »\ "read only [RO] and modified [+] flags
 set statusline+=File:%<%F\ »\ "file name
 set statusline+=Type:%Y\ »\ "file type aka .txt & co
 set statusline+=OS:%{&ff}\ »\ "file format aka Win & co
-set statusline+=Encoding:%{strlen(&fenc)?&fenc:'none'} "file encoding aka utf8 & co
+set statusline+=Encoding:%{&fileencoding?&fileencoding:&encoding} "file encoding aka utf8 & co
 set statusline+=%= "left-right groups separator
 set statusline+=Char:%B\ »\ "character code - to spot funny characters like non-breaking space
 set statusline+=Line:%l\ »\ "line number
@@ -95,6 +97,9 @@ set wildmode=list:full
 set mouse=a
 "scroll ahead, to prevent ugly line scrolling
 set scrolloff=3
+set sidescrolloff=3
+"normal side scrolling (1 character, instead of half a screen)
+set sidescroll=1
 "colorscheme - relaxing
 color wombat
 "easy gui copy/cut/paste, with Ctrl-C/Ctr-X/Ctrl-V
@@ -156,3 +161,4 @@ map <F4> <Esc>:mksession! ~/vimfiles/vimmainsession.vis<CR>"
 " Remap Ctrl-Space to autocomplete. Taken from here:
 " http://stackoverflow.com/questions/510503/ctrlspace-for-omni-and-keyword-completion-in-vim.
 inoremap <C-Space> <C-P>
+" TODO: fix arrow keys in command mode in the console

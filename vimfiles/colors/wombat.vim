@@ -1,6 +1,3 @@
-" Maintainer:	Lars Nielsen (dengmao@gmail.com)
-" Last Change:	January 22 2007
-
 set background=dark
 
 hi clear
@@ -11,15 +8,11 @@ endif
 
 let colors_name = "wombat"
 
-
-" Vim >= 7.0 specific colors
-if version >= 700
-  hi CursorLine guibg=#2d2d2d
-  hi CursorColumn guibg=#2d2d2d
-  hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold
-  hi Pmenu 		guifg=#f6f3e8 guibg=#444444
-  hi PmenuSel 	guifg=#000000 guibg=#cae682
-endif
+hi CursorLine guibg=#2d2d2d
+hi CursorColumn guibg=#2d2d2d
+hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold
+hi Pmenu 		guifg=#f6f3e8 guibg=#444444
+hi PmenuSel 	guifg=#000000 guibg=#cae682
 
 " General colors
 hi Cursor 		guifg=NONE    guibg=#656565 gui=none
@@ -47,3 +40,4 @@ hi Keyword		guifg=#8ac6f2 gui=none
 hi PreProc 		guifg=#e5786d gui=none
 hi Number		guifg=#e5786d gui=none
 hi Special		guifg=#e7f6da gui=none
+hi Search		guifg=#f6f3e8 guibg=#242424 gui=underline term=underline

@@ -74,6 +74,8 @@ setopt nobeep
 # correct both command and parameters
 setopt CORRECT
 setopt CORRECT_ALL
+# disable autocorrect for sqlplus since zsh is confused by @script.
+alias sqlplus='nocorrect sqlplus'
 # hash commands and directories for increasing speed
 setopt HASH_CMDS
 setopt HASH_DIRS
@@ -100,6 +102,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:rm:*' ignore-line yes
 zstyle ':completion:*:cp:*' ignore-line yes
 zstyle ':completion:*:mv:*' ignore-line yes
+# Cygwin drives that cannot be reached by globbing.
+zstyle ':completion:*' fake-files   '/:c' '/:d'
 # completion in the middle of text
 bindkey '^i' expand-or-complete-prefix
 # aliases
