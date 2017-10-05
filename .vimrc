@@ -53,7 +53,7 @@ set statusline+=Type:%Y\ »\ "file type aka .txt & co
 set statusline+=OS:%{&ff}\ »\ "file format aka Win & co
 set statusline+=Encoding:%{&fileencoding?&fileencoding:&encoding} "file encoding aka utf8 & co
 set statusline+=%= "left-right groups separator
-set statusline+=Char:%B\ »\ "character code - to spot funny characters like non-breaking space
+set statusline+=\ »\ Char:%B\ »\ "character code - to spot funny characters like non-breaking space
 set statusline+=Line:%l\ »\ "line number
 set statusline+=Column:%c\ »\  "column number
 set statusline+=%P "percentage based position in file
@@ -121,9 +121,9 @@ set guioptions-=t
 "since we don't use a menu, disable the menu shortcuts
 set winaltkeys=no
 "setting tab widths and labels, for Gvim and Vim
-set guitablabel=%N)%<%-20.45F
+set guitablabel=%N)%<%-20.30F
 set guitabtooltip=%F\ %y
-set tabline=%N)%<%-20.45F
+set tabline=%N)%<%-20.30F
 "shortcuts for accessing the tabs - Alt+1..9 for direct access
 map <A-1>  <Esc>1gt
 map <A-2>  <Esc>2gt
