@@ -78,9 +78,9 @@ set history=10000
 set noexpandtab
 "do not insert spaces according to shiftwidth or softtabstop
 set smarttab
-"tabs from indentation will be 8 spaces long
+"tabs from indentation will be 4 spaces long
 set shiftwidth=4
-"tabs inserted will be 8 spaces long (important for external applications)
+"tabs inserted will be 4 spaces long (important for external applications)
 set tabstop=4
 "consecutive spaces will be treated as tabs
 set softtabstop=0
