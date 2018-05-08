@@ -1,3 +1,7 @@
+"colorscheme - relaxing
+color wombat
+"highlight current column, useful for checking indentation (sometimes it can be annoying)
+set colorcolumn=80,100,120
 " pick up color theme from user folder
 set runtimepath+=~/vimfiles
 set fileformats=unix,dos
@@ -34,10 +38,10 @@ set nocompatible
 set number
 "highlights the current line
 set cursorline
-"highlight current column, useful for checking indentation (sometimes it can be annoying)
-"set cursorcolumn
 "incremental search - search as you type
 set incsearch
+"highlight search results
+set hlsearch
 "automatic indent, great for programming
 set autoindent
 "show current line and other details in the bottom row
@@ -87,7 +91,7 @@ set softtabstop=0
 "folding method
 set foldmethod=marker
 "foldmarker, so Vim will know where to fold
-set foldmarker=##-,-##
+set foldmarker=#region,#endregion
 "not sure about this
 set showfulltag
 "show possible completion on the bottom command line
@@ -100,8 +104,6 @@ set scrolloff=3
 set sidescrolloff=3
 "normal side scrolling (1 character, instead of half a screen)
 set sidescroll=1
-"colorscheme - relaxing
-color wombat
 "easy gui copy/cut/paste, with Ctrl-C/Ctr-X/Ctrl-V
 vmap <C-c> "+y
 vmap <C-x> "+x
@@ -111,7 +113,7 @@ vmap <C-a> <Esc>ggVG
 "map <Alt-v> for pasting in command mode.
 cmap <C-v> <C-r>"
 "nice Windows font, good for Linux too (sometimes it is not available)
-set guifont=Consolas:h13
+set guifont=Consolas:h11
 "always show tabbar
 set showtabline=2
 "disable menubar & toolbar

@@ -8,9 +8,10 @@ endif
 
 let colors_name = "wombat"
 
-hi CursorLine guibg=#2d2d2d
-hi CursorColumn guibg=#2d2d2d
-hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold
+hi CursorLine 	guibg=gray18
+hi CursorColumn guibg=gray10
+hi ColorColumn 	guibg=gray18
+hi MatchParen 	guifg=#f6f3e8 guibg=#857b6f gui=bold
 hi Pmenu 		guifg=#f6f3e8 guibg=#444444
 hi PmenuSel 	guifg=#000000 guibg=#cae682
 
