@@ -1,0 +1,59 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.maxColumn": 40,
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "workbench.activityBar.visible": false,
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.showFoldingControls": "always",
+    "editor.fontFamily": "Consolas",
+    "editor.fontSize": 15,
+    "editor.folding": true,
+    "editor.rulers": [
+        100, 120
+    ],
+    "git.enabled": true,
+    "git.path": "C:\\Program Files\\Git\\bin",
+    "diffEditor.ignoreTrimWhitespace": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Wombat",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#222222ff",
+        "statusBar.noFolderBackground": "#222222ff",
+        "statusBar.debuggingForeground": "#222222ff",
+        "editorIndentGuide.activeBackground": "#57595e"
+    },
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.editor.showTabs": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.shell.windows": "C:\\cygwin\\bin\\bash.exe",
+    "terminal.integrated.shellArgs.windows": [
+        "/bin/xhere",
+        "/bin/zsh"
+    ],
+    "terminal.integrated.fontFamily": "Consolas",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.scrollback": 50000,
+    "terminal.integrated.copyOnSelection": true,
+    "git.confirmSync": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.statusBar.enabled": false,
+    "gitlens.blame.avatars": false,
+    "gitlens.currentLine.scrollable": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.gitExplorer.view": "history",
+    "files.associations": {
+        "*Jenkins": "groovy",
+        "Jenkinsfile": "groovy"
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.explorers.avatars": false,
+    "gitlens.keymap": "alternate"
+}

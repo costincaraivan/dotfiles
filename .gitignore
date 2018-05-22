@@ -7,6 +7,15 @@
 !/.zshrc
 !/.minttyrc
 !/.tmux.conf
+/.config/*
+!/.config/
+/.config/Code/*
+!/.config/Code/
+/.config/Code/User/*
+!/.config/Code/User/
+/.config/Code/User/*
+!/.config/Code/User/settings.json
+!/.config/Code/User/keybindings.json
 
 # And this exact list of folders.
 !/vimfiles/
