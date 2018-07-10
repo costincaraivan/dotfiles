@@ -1,7 +1,5 @@
 export PATH=/bin:/sbin/:/usr/sbin:${PATH}
 
-cd /c/java
-
 # Emacs keybindings.
 bindkey -e
 

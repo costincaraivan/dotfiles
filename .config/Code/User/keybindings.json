@@ -21,7 +21,7 @@
     },
     {
         "key": "ctrl+shift+t",
-        "command": "workbench.action.terminal.new",
+        "command": "workbench.action.terminal.newInActiveWorkspace",
         "when": "terminalFocus"
     },
     {
@@ -36,7 +36,7 @@
     }
     {
         "key": "ctrl+shift+-",
-        "command": "workbench.action.terminal.split",
+        "command": "workbench.action.terminal.splitInActiveWorkspace",
         "when": "terminalFocus"
     },
     {
@@ -62,5 +62,15 @@
     {
         "key": "ctrl+shift+g",
         "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+shift+oem_minus",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "python.runCurrentTestFile",
+        "when": "editorTextFocus"
     }
 ]
