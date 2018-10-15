@@ -31,6 +31,7 @@
     "git.enabled": true,
     "git.path": "C:/Program Files/Git/bin",
     "git.confirmSync": false,
+    "scm.alwaysShowProviders": true,
     "terminal.integrated.shell.windows": "C:/cygwin/bin/bash.exe",
     "terminal.integrated.shellArgs.windows": [
         "/bin/xhere",
@@ -68,6 +69,9 @@
         "-v", "-tb"
     ],
     "gitlens.showWhatsNewAfterUpgrades": false,
-    "workbench.statusBar.visible": true
-    "window.titleBarStyle": "custom"
+    "workbench.statusBar.visible": true,
+    "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.symbolPath": "on",
+    "terminal.integrated.rendererType": "dom"
 }
