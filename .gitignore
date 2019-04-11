@@ -7,6 +7,7 @@
 !/.zshrc
 !/.minttyrc
 !/.tmux.conf
+
 /.config/*
 !/.config/
 /.config/Code/*
@@ -16,6 +17,13 @@
 /.config/Code/User/*
 !/.config/Code/User/settings.json
 !/.config/Code/User/keybindings.json
+
+/.emacs.d/*
+!/.emacs.d/
+!/.emacs.d/init.el
+/.emacs.d/lisp/*
+!/.emacs.d/lisp/
+!/.emacs.d/lisp/fakecygpty.el
 
 # And this exact list of folders.
 !/vimfiles/
