@@ -1,12 +1,17 @@
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+;(require 'evil)
+;(evil-mode 1)
 ; Hide the welcome message.
 (setq inhibit-startup-message t)
 ; Visible bell instead of beeping.
 (setq-default visible-bell t)
 ; Enable standard shortcuts (CUA mode).
 (cua-mode t)
-(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
-(transient-mark-mode 1) ;; No region when it is not highlighted
-(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+(setq cua-auto-tabify-rectangles nil) ; Don't tabify after rectangle commands
+(transient-mark-mode 1) ; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ; Standard Windows behaviour
 ; Keyboard shortcuts for managing splits.
 (global-set-key (kbd "C-|") 'split-window-right)
 (global-set-key (kbd "C-_") 'split-window-below)
@@ -16,6 +21,8 @@
 (global-set-key (kbd "C-S-<up>") 'windmove-up)
 (global-set-key (kbd "C-S-<down>") 'windmove-down)
 (global-set-key (kbd "C-R") 'eval-buffer)
+; Hide the menu bar
+(menu-bar-mode -1)
 ; Hide the toolbar.
 (tool-bar-mode -1)
 ; Set Consolas as the default font.

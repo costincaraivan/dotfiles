@@ -92,18 +92,20 @@ zstyle ':completion:*' cache-path ~/.zsh/zsh_cache
 # ignore working directory
 zstyle ':complezstyle:*:cd:*' ignore-parents parent pwd
 # fuzzy match - allow max 1 error
-zstyle ':completion:*' completer _complete _match _approximate
+# zstyle ':completion:*' completer _complete _match _approximate
+autoload predict-on; predict-on
+# Autocomplete using a menu selection.
+zstyle ':completion:*' menu yes select
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 # kill PID completion
-zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 # ignore the files on the command line for autocompletion
 zstyle ':completion:*:rm:*' ignore-line yes
 zstyle ':completion:*:cp:*' ignore-line yes
 zstyle ':completion:*:mv:*' ignore-line yes
 # Cygwin drives that cannot be reached by globbing.
-zstyle ':completion:*' fake-files   '/:c' '/:d'
+zstyle ':completion:*' fake-files '/:c' '/:d'
 # completion in the middle of text
 bindkey '^i' expand-or-complete-prefix
 # aliases
