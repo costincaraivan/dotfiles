@@ -1,4 +1,18 @@
-export PATH=~/.local/bin:/bin:/sbin/:/usr/sbin:${PATH}
+OS=$(uname)
+if [[ "$OS" != "Darwin" ]]
+then
+	export PATH=~/.local/bin:/bin:/sbin/:/usr/sbin:${PATH}
+else
+	# Get list of gnubin directories
+	export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
+
+	for bindir in ${GNUBINS[@]}; do
+		export PATH=$bindir:${PATH};
+	done
+	# aliases
+	alias ls='gls --color=auto -F'
+	alias grep='ggrep --color=auto'
+fi
 
 # Emacs keybindings.
 bindkey -e
@@ -93,9 +107,9 @@ zstyle ':completion:*' cache-path ~/.zsh/zsh_cache
 zstyle ':complezstyle:*:cd:*' ignore-parents parent pwd
 # fuzzy match - allow max 1 error
 # zstyle ':completion:*' completer _complete _match _approximate
-autoload predict-on; predict-on
+# autoload predict-on; predict-on
 # Autocomplete using a menu selection.
-zstyle ':completion:*' menu yes select
+# zstyle ':completion:*' menu yes select
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 # kill PID completion
@@ -108,9 +122,6 @@ zstyle ':completion:*:mv:*' ignore-line yes
 zstyle ':completion:*' fake-files '/:c' '/:d'
 # completion in the middle of text
 bindkey '^i' expand-or-complete-prefix
-# aliases
-alias ls='ls --color=auto -F'
-alias grep='grep --color=auto'
 
 # Fixing special keys (Home/End/etc.).
 bindkey "${terminfo[khome]}" beginning-of-line
