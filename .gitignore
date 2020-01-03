@@ -26,9 +26,9 @@
 !/.emacs.d/lisp/fakecygpty.el
 
 # And this exact list of folders.
-!/vimfiles/
+!/.vimfiles/
 # There are some generated files in vimfiles, which we want to ignore.
-/vimfiles/.netrwhist
-/vimfiles/backup
-/vimfiles/directory
-/vimfiles/undo
+/.vimfiles/.netrwhist
+/.vimfiles/backup
+/.vimfiles/directory
+/.vimfiles/undo
