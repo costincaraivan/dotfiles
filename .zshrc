@@ -1,17 +1,12 @@
-OS=$(uname)
-if [[ "$OS" != "Darwin" ]]
-then
-	export PATH=~/.local/bin:/bin:/sbin/:/usr/sbin:${PATH}
-else
-	# Get list of gnubin directories
-	export GNUBINS="$(find /usr/local/opt -type d -follow -name gnubin -print)";
+export LC_ALL=en_US.UTF-8
 
-	for bindir in ${GNUBINS[@]}; do
-		export PATH=$bindir:${PATH};
-	done
+OS=$(uname)
+if [[ "$OS" == "Darwin" ]]
+then
+	export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/bin:/sbin/:/usr/sbin:${PATH}
 	# aliases
-	alias ls='gls --color=auto -F'
-	alias grep='ggrep --color=auto'
+	alias ls='ls --color=auto -F'
+	alias grep='grep --color=auto'
 fi
 
 # Emacs keybindings.
@@ -74,7 +69,7 @@ zmodload zsh/complist
 export HISTSIZE=50000
 export SAVEHIST=50000
 export HISTFILE=~/.zsh/zsh_history
-setopt hist_ignore_dups
+setopt HIST_FIND_NO_DUPS
 setopt appendhistory
 setopt share_history
 # editor and pager settings
@@ -132,3 +127,5 @@ function gvim() {
 	file=$(echo "$1" | sed -e 's/~/C:\/Users\/ccaraivan/')
 	/c/Program\ Files\ \(x86\)/Vim/vim80/gvim --remote-tab "$(cygpath -m $file)"
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
