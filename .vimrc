@@ -1,9 +1,8 @@
 "colorscheme - relaxing
-color wombat
+"color wombat
 "highlight current column, useful for checking indentation (sometimes it can be annoying)
-set colorcolumn=80,100,120
+"set colorcolumn=80,100,120
 " pick up color theme from user folder
-A
 set runtimepath+=~/.vimfiles
 set fileformats=unix,dos
 set fileformat=unix

@@ -1,22 +1,24 @@
+# Make sure that the locale is UTF-8, to avoid any encoding issues.
 export LC_ALL=en_US.UTF-8
 
+# Make sure we have the default keybindings, emacs (Ctrl-r, Ctrl-a, Ctrl-e, etc.).
+bindkey -e
+
+# Configure OS specific settings.
 OS=$(uname)
 if [[ "$OS" == "Darwin" ]]
 then
 	export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/bin:/sbin/:/usr/sbin:${PATH}
-	# aliases
-	alias ls='ls --color=auto -F'
-	alias grep='grep --color=auto'
 fi
 
-# Emacs keybindings.
-bindkey -e
+# Aliases to add colors to commands.
+alias ls="ls --color=auto -F"
+alias grep="grep --color=auto"
 
-##- Prompt colors.
 # Load the terminal colors and activate them.
 autoload -U colors
 colors
-# Nicer names for the color sequences.
+# Human-readable names for the color sequences.
 startcyan='%{$fg[cyan]%}'
 startgreen='%{$fg[green]%}'
 startred='%{$fg[red]%}'
@@ -24,9 +26,7 @@ startyellow='%{$fg[yellow]%}'
 startblue='%{$fg[blue]%}'
 endcolor='%{$reset_color%}'
 startmagenta='%{$fg[magenta]%}'
-#-##
 
-##- Prompt.
 # Activate prompts substitutions, used by vcs_info.
 setopt prompt_subst
 
@@ -44,7 +44,6 @@ promptdatetime="${startgreen}%D{%H:%M %a %d/%b/%Y}${endcolor}"
 promptscm="${startgreen}\${vcs_info_msg_0_}${endcolor} "
 
 firstprompt="${promptstart}${promptdatetime}${promptseparator}${promptscm}${promptnewline}"
-
 promptusername="${startyellow}%n${endcolor}"
 promptat="${startyellow}@${endcolor}"
 prompthostname="${startyellow}%M${endcolor}"
@@ -52,11 +51,9 @@ promptlocation="${promptusername}${promptat}${prompthostname}"
 current_directory="${startgreen}%2~${endcolor}"
 
 secondprompt="${promptstart}${promptlocation}${promptseparator}${current_directory}${promptnewline}${promptend}"
-
 prompt="${firstprompt}${secondprompt}"
 
 export PS1=${prompt}
-#-##
 
 # Get the VCS info before hitting <Enter>.
 precmd () { vcs_info }
@@ -65,13 +62,20 @@ precmd () { vcs_info }
 preexec () { echo -e "\033]$1\007" }
 
 zmodload zsh/complist
+# Report execution time for commands running for longer than 10 seconds.
+export REPORTTIME=10
 # set history options
-export HISTSIZE=50000
-export SAVEHIST=50000
+export HISTSIZE=150000
+export SAVEHIST=150000
 export HISTFILE=~/.zsh/zsh_history
 setopt HIST_FIND_NO_DUPS
-setopt appendhistory
-setopt share_history
+# Write immediately to history, not after the shell exits.
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt SHARE_HISTORY
 # editor and pager settings
 # Fixes aws help on Cygwin.
 export PAGER='less -isR'
@@ -118,14 +122,13 @@ zstyle ':completion:*' fake-files '/:c' '/:d'
 # completion in the middle of text
 bindkey '^i' expand-or-complete-prefix
 
-# Fixing special keys (Home/End/etc.).
+# Fix special keys (Home/End/etc.).
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 bindkey "${terminfo[kdch1]}" delete-char
 
-function gvim() {
-	file=$(echo "$1" | sed -e 's/~/C:\/Users\/ccaraivan/')
-	/c/Program\ Files\ \(x86\)/Vim/vim80/gvim --remote-tab "$(cygpath -m $file)"
-}
-
+# Load fzf.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load cargo.
+[ -f ~/.cargo/env ] && source ~/.cargo/env

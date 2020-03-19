@@ -8,7 +8,8 @@
         "statusBar.noFolderBackground": "#222222ff",
         "statusBar.debuggingForeground": "#222222ff",
         "editorIndentGuide.activeBackground": "#57595e",
-        "scrollbarSlider.hoverBackground": "#57595ecc"
+        "scrollbarSlider.hoverBackground": "#1c2333cc",
+        "scrollbarSlider.background": "#57595e"
     },
     "workbench.statusBar.feedback.visible": false,
     "workbench.editor.showTabs": false,
@@ -17,6 +18,7 @@
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": true,
     "editor.minimap.maxColumn": 40,
+    "editor.minimap.showSlider": "always",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
